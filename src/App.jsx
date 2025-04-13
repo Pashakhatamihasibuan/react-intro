@@ -22,36 +22,88 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200 p-4">
-        <div className="bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full space-y-6">
-          <h2 className="text-2xl font-bold text-center text-indigo-700">Kalkulator Perkalian</h2>
+      <div style={styles.container}>
+        <div style={styles.card}>
+          <h2 style={styles.title}>Kalkulator Perkalian</h2>
 
-          <div className="space-y-6">
-            <input
-              type="number"
-              value={num1}
-              onChange={(e) => setNum1(e.target.value)}
-              placeholder="Angka pertama"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
-            />
-            <input
-              type="number"
-              value={num2}
-              onChange={(e) => setNum2(e.target.value)}
-              placeholder="Angka kedua"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
-            />
-          </div>
+          <input
+            type="number"
+            value={num1}
+            onChange={(e) => setNum1(e.target.value)}
+            placeholder="Angka pertama"
+            style={{ ...styles.input, marginBottom: "20px" }}
+          />
+          <input
+            type="number"
+            value={num2}
+            onChange={(e) => setNum2(e.target.value)}
+            placeholder="Angka kedua"
+            style={{ ...styles.input, marginBottom: "20px" }}
+          />
 
-          <button onClick={handleMultiply} className="w-full bg-indigo-600 text-white py-3 rounded-xl text-lg font-semibold hover:bg-indigo-700 transition">
+          <button onClick={handleMultiply} style={styles.button}>
             Kalikan
           </button>
 
-          {result !== null && <div className="text-center mt-4 text-indigo-800 text-xl font-semibold bg-indigo-100 py-2 rounded-xl">Hasil: {result}</div>}
+          {result !== null && <div style={styles.result}>Hasil: {result}</div>}
         </div>
       </div>
     </>
   );
 }
+
+const styles = {
+  container: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px",
+  },
+  card: {
+    background: "white",
+    padding: "30px",
+    borderRadius: "20px",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+    width: "100%",
+    maxWidth: "400px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "30px",
+    textAlign: "center",
+    color: "#4338ca",
+  },
+  input: {
+    padding: "12px 16px",
+    fontSize: "16px",
+    borderRadius: "12px",
+    border: "1px solid #ccc",
+    outline: "none",
+  },
+  button: {
+    backgroundColor: "#4f46e5",
+    color: "white",
+    padding: "12px",
+    border: "none",
+    borderRadius: "12px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+  result: {
+    marginTop: "20px",
+    textAlign: "center",
+    fontSize: "18px",
+    fontWeight: "600",
+    color: "#1e3a8a",
+    background: "#e0e7ff",
+    padding: "10px",
+    borderRadius: "10px",
+  },
+};
 
 export default App;
